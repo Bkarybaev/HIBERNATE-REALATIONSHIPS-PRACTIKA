@@ -46,12 +46,12 @@ public class App
 //        profileService.delete(52L);
 
 
-        System.out.println(userService.updateUserProfile(302L, new Profile(
-                "Baiel Karybaev",
-                LocalDate.of(2004, 1, 18),
-                Gender.MALE,
-                "molodes lesson well study"
-        )));
+//        System.out.println(userService.updateUserProfile(302L, new Profile(
+//                "Baiel Karybaev",
+//                LocalDate.of(2004, 1, 18),
+//                Gender.MALE,
+//                "molodes lesson well study"
+//        )));
 
 //        System.out.println(profileService.findProfileByUserId(52L));
 
@@ -60,6 +60,8 @@ public class App
 //                        "sdfvb wefdbailebialell"));
 
 //        postService.getPostsByUserId(252L).forEach(System.out::println);
+
+//        System.out.println(postService.searchPost("bail"));
 
 //        postService.deletePostById(402L);
 //
@@ -72,7 +74,7 @@ public class App
 
 //        commentService.updateComment(702L,"comment");
 
-        commentService.deleteComment(502L);
+//        commentService.deleteComment(502L);
 
     }
 }
