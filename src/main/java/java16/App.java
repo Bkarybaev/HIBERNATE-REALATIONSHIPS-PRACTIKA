@@ -46,31 +46,33 @@ public class App
 //        profileService.delete(52L);
 
 
-//        System.out.println(userService.updateUserProfile(52L, new Profile(
-//                "Baiel Karybaev",
-//                LocalDate.of(2004, 1, 18),
-//                Gender.MALE,
-//                "molodes lesson well study"
-//        )));
+        System.out.println(userService.updateUserProfile(302L, new Profile(
+                "Baiel Karybaev",
+                LocalDate.of(2004, 1, 18),
+                Gender.MALE,
+                "molodes lesson well study"
+        )));
 
 //        System.out.println(profileService.findProfileByUserId(52L));
 
-//        postService.savePost(252L,
+//        postService.savePost(302L,
 //                new Post("https://user/is//17-jepandlfhsl23lasdf",
 //                        "sdfvb wefdbailebialell"));
 
 //        postService.getPostsByUserId(252L).forEach(System.out::println);
 
 //        postService.deletePostById(402L);
-
-//        commentService.saveComment(452L,252L,
+//
+//        commentService.saveComment(402L,302L,
 //                Comment.builder()
 //                        .text("This is a comment")
 //                        .build());
 
 //        commentService.findCommentByPostId(452L).forEach(System.out::println);
 
-//        commentService.updateComment(702L,"no fati no fati no fati no fati");
+//        commentService.updateComment(702L,"comment");
+
+        commentService.deleteComment(502L);
 
     }
 }

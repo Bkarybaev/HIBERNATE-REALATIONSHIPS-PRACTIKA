@@ -8,6 +8,6 @@ import java.util.Optional;
 public interface PostDao {
     void savePost(Long userId, Post post);
     List<Post> getPostsByUserId(Long userId);
-    Optional<Post>  searchPost(String query);
+    List<Post>  searchPost(String query);
     void deletePostById(Long id);
 }

@@ -20,8 +20,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Optional<Post> searchPost(String query) {
-        return Optional.empty();
+    public  List<Post>  searchPost(String query) {
+        return dao.searchPost(query);
     }
 
     @Override

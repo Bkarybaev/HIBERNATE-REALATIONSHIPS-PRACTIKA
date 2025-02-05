@@ -13,7 +13,7 @@ import java.util.Properties;
 public class DataBaseConfig {
     public static EntityManagerFactory getEntityManager(){
         Properties props = new Properties();
-        props.put(Environment.JAKARTA_JDBC_URL,"jdbc:postgresql://localhost:5432/java16");
+        props.put(Environment.JAKARTA_JDBC_URL,"jdbc:postgresql://localhost:5454/postgres");
         props.put(Environment.JAKARTA_JDBC_USER,"postgres");
         props.put(Environment.JAKARTA_JDBC_PASSWORD,"baiel123");
         props.put(Environment.DIALECT,"org.hibernate.dialect.PostgreSQLDialect");
@@ -29,5 +29,5 @@ public class DataBaseConfig {
 
 
         return cfg.buildSessionFactory().unwrap(EntityManagerFactory.class);
-    };
+    }
 }

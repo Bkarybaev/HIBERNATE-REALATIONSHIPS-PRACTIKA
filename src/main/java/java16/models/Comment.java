@@ -19,7 +19,7 @@ import java.util.List;
 @SequenceGenerator(name = "gen_id", sequenceName = "comment_id", allocationSize = 1)
 public class Comment extends BaseGen {
     private String text;
-    private LocalDateTime createdAt;
+    private LocalDateTime comment_date;
 
     @ManyToMany(mappedBy = "comments")
     @ToString.Exclude
@@ -32,7 +32,7 @@ public class Comment extends BaseGen {
     @PreUpdate
     @PrePersist
     public void prePersist() {
-        createdAt = LocalDateTime.now();
+        comment_date = LocalDateTime.now();
     }
 
 }

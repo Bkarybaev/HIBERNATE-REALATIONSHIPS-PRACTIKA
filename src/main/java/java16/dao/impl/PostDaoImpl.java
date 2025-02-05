@@ -31,8 +31,19 @@ public class PostDaoImpl implements PostDao {
     }
 
     @Override
-    public Optional<Post> searchPost(String query) {
-        return Optional.empty();
+    public List<Post> searchPost(String query) {
+        try {
+            List<Post> posts = em
+                    .createQuery("select p from Post p where p.description ilike :qwery", Post.class)
+                    .setParameter("qwery", '%'+query+'%')
+                    .getResultList();
+            if (posts != null) {
+                return posts;
+            }
+            return List.of();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

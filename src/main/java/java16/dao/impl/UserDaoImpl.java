@@ -40,9 +40,15 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User updateUserProfile(Long userId, Profile profile) {
-       entityManager.getTransaction().begin();
         User user = entityManager.find(User.class, userId);
-        user.setProfile(profile);
+
+       entityManager.getTransaction().begin();
+        Profile profile1 = entityManager.find(Profile.class, user.getProfile().getId());
+        profile1.setBiography(profile.getBiography());
+        profile1.setGender(profile.getGender());
+        profile1.setBirthDate(profile.getBirthDate());
+        profile1.setFullName(profile.getFullName());
+        user.setProfile(profile1);
         entityManager.merge(user);
         entityManager.getTransaction().commit();
         return user;

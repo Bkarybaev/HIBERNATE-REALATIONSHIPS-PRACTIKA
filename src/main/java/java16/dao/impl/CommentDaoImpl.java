@@ -9,6 +9,7 @@ import java16.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class CommentDaoImpl implements CommentDao {
     EntityManager em = DataBaseConfig.getEntityManager().createEntityManager();
@@ -55,7 +56,28 @@ public class CommentDaoImpl implements CommentDao {
     }
 
     @Override
-    public void deleteComment(Comment comment) {
+    public String deleteComment(Comment comment) {
+        try {
+            em.getTransaction().begin();
+            Comment comment1 = em.find(Comment.class, comment.getId());
+            List<User> users = comment1.getUsers();
+            comment1.setUsers(null);
+            comment1.setPost(null);
+            users.forEach(u -> u.getComments().remove(comment1));
+            em.remove(comment);
+            em.getTransaction().commit();
+            return "Comment deleted successfully";
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+    }
 
+
+    public Optional<Comment> findCommentById(Long commentId) {
+        try {
+            return Optional.ofNullable(em.find(Comment.class, commentId));
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

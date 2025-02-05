@@ -25,7 +25,7 @@ public class User extends BaseGen {
     @ToString.Exclude
     private List<Post>  post;
 
-    @ManyToMany
+    @ManyToMany()
     @ToString.Exclude
     private List<Comment> comments;
 }
