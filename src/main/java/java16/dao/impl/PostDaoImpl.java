@@ -27,7 +27,17 @@ public class PostDaoImpl implements PostDao {
 
     @Override
     public List<Post> getPostsByUserId(Long userId) {
-        return em.find(User.class, userId).getPost();
+       try {
+           em.getTransaction().begin();
+           List<Post> post = em.createQuery("select p from Post p where p.owner.id = :id",Post.class)
+                           .setParameter("id",userId).getResultList();
+           em.getTransaction().commit();
+           return post;
+
+       }catch (Exception e) {
+           em.getTransaction().rollback();
+           throw e;
+       }
     }
 
     @Override

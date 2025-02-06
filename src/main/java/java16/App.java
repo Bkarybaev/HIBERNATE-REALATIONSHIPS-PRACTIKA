@@ -59,7 +59,7 @@ public class App
 //                new Post("https://user/is//17-jepandlfhsl23lasdf",
 //                        "sdfvb wefdbailebialell"));
 
-//        postService.getPostsByUserId(252L).forEach(System.out::println);
+        postService.getPostsByUserId(302L).forEach(System.out::println);
 
 //        System.out.println(postService.searchPost("bail"));
 
